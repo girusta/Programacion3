@@ -1,0 +1,294 @@
+
+/* Importacion de fuentes */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', 'Lato', 'Montserrat', 'Raleway', 'Poppins', 'Nunito', 'Open Sans', sans-serif;
+}
+
+
+body {
+    margin-left: 80px;
+    margin-top: 80px;
+    transition: margin-left 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+main {
+    padding: 5px;
+}
+
+.name__page h4 {
+    font-size: 25px; /* Tamaño de fuente más pequeño */
+    color: rgb(180, 177, 176); /* Color naranja */
+    margin-left: 5px; /* Ajuste de margen izquierdo según sea necesario */
+}
+
+header {
+    background-color: #1d1d1d;
+    padding: 10px;
+    width: 100%; /* Mantén el ancho completo */
+    height: auto; /* Permite que la altura se ajuste automáticamente */
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 200;
+    overflow: hidden; /* Evita que el contenido desborde */
+}
+
+.header-content {
+    display: flex; /* Utilizamos flexbox para colocar los elementos uno al lado del otro */
+    align-items: center; /* Centramos verticalmente los elementos */
+    justify-content: space-between; /* Distribuye el espacio entre elementos */
+    width: 95%;
+    padding-right: 20px; /* Agrega un padding derecho para que el logo no quede pegado al borde */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias líneas si es necesario */
+}
+
+.icon__menu {
+    margin-right: 10px;
+    width: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(5px);
+}
+
+.icon__menu i {
+    font-size: 20px;
+    cursor: pointer;
+    position: absolute;
+    color: #F5F5F5;
+}
+
+/* Estilos para la fecha y la hora */
+#current-date,
+#current-time {
+    color: rgb(227, 217, 213); /* Texto blanco */
+    font-size: 16px; /* Tamaño de fuente */
+    margin-right: 1px; /* Espacio entre la fecha y la hora */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+/* Estilo específico para la hora */
+#current-time {
+    font-weight: bold; /* Hora en negrita */
+}
+
+.menu__side {
+    width: 80px;
+    height: 100%;
+    background: #1d1d1d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    font-size: 18px;
+    z-index: 300;
+    overflow: hidden;
+    overflow-y: scroll;
+    border-right: 20px solid #aaadcf;
+    transition: all 300ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+/*Ocultar scroll para chrome, safari y opera*/
+.menu__side::-webkit-scrollbar {
+    display: none;
+}
+
+/*Ocultar scroll para IE, Edge y Firefox*/
+.menu__side {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.name__page {
+    padding: 5px 30px;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.name__page i {
+    width: 80px;
+    margin-right: 20px;
+}
+
+.options__menu {
+    padding: 40px 20px;
+    position: absolute;
+    top: 60px;
+}
+
+.options__menu a {
+    color: #fdf9f9b2;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+
+.options__menu a:hover {
+    color: rgb(194, 137, 15);
+}
+
+.options__menu .option {
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options__menu .option i {
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.options__menu .option h4 {
+    font-family: 'Montserrat', sans-serif; /* Aplica la nueva fuente */
+    font-weight: 700; /* Ajusta el peso de la fuente si es necesario */
+    cursor: pointer;
+}
+
+a.selected {
+    color: #d61b1b;
+}
+
+.selected:before {
+    content: '';
+    width: 3px;
+    height: 80%;
+    background: #FAEBD7;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+}
+
+/*Clases para usar en JavaScript*/
+
+.body_move {
+    margin-left: 250px;
+}
+
+.menu__side_move {
+    width: 250px;
+}
+
+@media screen and (max-width: 760px) {
+    
+    .body_move {
+        margin-left: 0px;
+    }
+
+    .menu__side_move {
+        width: 80px;
+        left: -80px;
+    }
+}
+
+.dialog-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dialog-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dialog-box p {
+    margin-bottom: 20px;
+}
+
+.dialog-box button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dialog-box #confirm-yes {
+    background-color: #28a745; /* Color para el botón de aceptar */
+    color: white;
+}
+
+.dialog-box #confirm-no {
+    background-color: #dc3545; /* Color para el botón de cancelar */
+    color: white;
+}
+
+.weather-info {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding-right: 20px; /* Agrega un padding derecho para que no quede pegado al borde */
+}
+
+.weather-info i {
+    margin-right: 10px;
+}
+
+.weather-info span {
+    margin-right: 5px;
+}
+
+.logo-img {
+    max-width: 60px; /* Ajustar el tamaño máximo del logo según sea necesario */
+    height: auto; /* Mantener la proporción del logo */
+}
+#current-date,
+#current-time {
+    font-size: 14px; /* Ajusta el tamaño de fuente en pantallas pequeñas */
+}
+
+@media screen and (max-width: 400px) {
+    .header-content {
+        display: flex; /* Asegura que los elementos se alineen en una línea */
+        justify-content: space-between; /* Espacia los elementos uniformemente */
+        align-items: center; /* Centra verticalmente los elementos */
+        flex-wrap: nowrap; /* Evita que los elementos se rompan a la siguiente línea */
+        width: 100%; /* Asegura que ocupe el ancho completo */
+    }
+
+    .logo-img {
+        display: none; /* Oculta el logo en pantallas pequeñas */
+    }
+
+    #current-date,
+    #current-time {
+        font-size: 12px; /* Ajusta el tamaño de fuente si es necesario */
+    }
+
+    .weather-info {
+        padding-right: 0; /* Elimina el padding derecho */
+    }
+
+    .icon__menu {
+        margin-right: 10px; /* Ajusta el margen derecho según sea necesario */
+    }
+}

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/v1estilos.css">
+    <link rel="stylesheet" href="../css/v1servicio.css">
+    <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
+</head>
+<body id="body">
+    
+    <header>
+        <div class="header-content">
+            <div class="icon__menu">
+                <i class="fas fa-bars" id="btn_open"></i>
+            </div>
+            <div id="weather" class="weather-info"></div>
+            <div>
+                <div id="current-date"></div>
+                <div id="current-time"></div>
+            </div>
+            <img src="../recursos/logogi1.png" alt="Logo" class="logo-img">
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <i class="fa-regular fa-square-check" title="Lavado"></i>
+            <h4>Lavados</h4>
+        </div>
+
+        <div class="options__menu">	
+
+            <a href="./v1principal.html" class="selected">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Dashboard</h4>
+                </div>
+            </a>
+
+            <a href="./v1cliente.html">
+                <div class="option">
+                    <i class="fa-solid fa-user" title="Cliente"></i>
+                    <h4>Clientes</h4>
+                </div>
+            </a>
+            
+            <a href="./v1vehiculo.html">
+                <div class="option">
+                    <i class="fa-solid fa-car" title="Vehiculo"></i>
+                    <h4>Vehiculos</h4>
+                </div>
+            </a>
+
+            <a href="./v1servicios.html">
+                <div class="option">
+                    <i class="fa-regular fa-square-check" title="Lavado"></i>
+                    <h4>Lavados</h4>
+                </div>
+            </a>
+
+            <a href="#" id="exit-link">
+                <div class="option">
+                    <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
+                    <h4>Salir</h4>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div id="confirmation-dialog" class="dialog-overlay">
+        <div class="dialog-box">
+            <p>¿Desea salir del sistema?</p>
+            <button id="confirm-yes">Aceptar</button>
+            <button id="confirm-no">Cancelar</button>
+        </div>
+    </div>
+
+    <main>
+        <h1 id="titulo">Gestión de lavados</h1>
+
+<!-- Filtros -->
+<div class="filtro-container">
+
+
+    <div class="form-group-filtre">
+        <label for="fecha-turno">Fecha de Turno:</label>
+        <input type="date" class="form-control-filtre" id="filtroFechaTurno">
+    </div>
+
+    <div class="form-group-filtre">
+        <label for="buscar-cliente">Buscar cliente:</label>
+        <input type="text" class="form-control-filtre" id="filtroCliente" placeholder="Buscar Cliente">
+    </div>
+    <div class="form-group-filtre">
+        <label for="filtro-dominio">Dominio</label>
+        <input type="text" id="filtroDominio" placeholder="Filtrar por Dominio">
+    </div>
+
+    <div class="form-group-filtre">
+        <label for="filtroEstado">Filtrar por Estado:</label>
+        <select id="filtroEstado">
+            <option value="">Seleccione un estado</option>
+            <option value="Entregado">Entregado</option>
+            <option value="Con turno">Con turno</option>
+            <option value="Terminado">Terminado</option>
+            <option value="En lavado">En lavado</option>
+        </select>
+    </div>
+    <button id="limpiarFiltros">Limpiar Filtros</button>
+    <div class="form-group-filtre">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearServicioModal">Crear Orden</button>
+    </div>
+    
+        
+        </div>
+        <!-- Mensaje de éxito -->
+        <div id="mensajeExito" class="mt-3 text-center" style="display: none; color: green;">¡Orden creada correctamente!</div>
+
+           <!-- Modal para el formulario -->
+           <div class="modal" id="crearServicioModal">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                <!-- Cabecera del modal -->
+                    <div class="modal-header">
+                    <h5 class="modal-title">Formulario de Creación de Servicio</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                <!-- Cuerpo del modal -->
+                    <div class="modal-body">
+                    <form id="add-orden-form">
+                <!-- Campos del formulario -->
+                    <div class="form-group">
+                        <input type="hidden" class="form-control" id="idorden">
+                    </div>
+                    <p>* Todos los campos del formulario son obligatorios de completar</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="fecha">Fecha:</label>
+                                <input type="text" class="form-control" id="fecha" value="?php echo date('Y-m-d'); ?>" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="cliente">Cliente:</label>
+                                <select id="idcliente" name="idcliente" class="form-select" required>
+                                <!-- Opciones de clientes se llenarán dinámicamente -->
+                                </select>                                        
+                            </div>                    
+                            <div class="form-group">
+                                <label for="dominio">Dominio:</label>
+                                <select class="form-control" id="dominio">
+                                <!-- Opciones de dominio cargadas desde la tabla vehiculo -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaTurno">Fecha Turno:</label>
+                                <input type="date" class="form-control" id="fechaTurno">
+                            </div>
+                            <div class="form-group">
+                                <label for="horario">Horario:</label>
+                                <select class="form-control" id="horario">
+                                    <option value="8a10">8a10</option>
+                                    <option value="10a12">10a12</option>
+                                    <option value="12a14">12a14</option>
+                                    <option value="14a16">14a16</option>
+                                    <option value="16a18">16a18</option>
+                                </select>
+                            </div>    
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="formaPago">Forma de Pago:</label>
+                                <select class="form-control" id="formaPago">
+                                <!-- Opciones de forma de pago cargadas desde la tabla forma_pago -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado:</label>
+                                <select class="form-control" id="estado">
+                                <!-- Opciones de estado cargadas desde la tabla estado -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Usuario:</label>
+                                <select class="form-control" id="usuario">
+                                <!-- Opciones de estado cargadas desde la tabla estado -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Tipo Vehiculo:</label>
+                                <select class="form-control" id="tipovehiculo">
+                                <!-- Opciones de estado cargadas desde la tabla estado -->
+                                </select>
+                            </div>
+                        </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <h5>Servicios</h5>
+                            <div id="listaServicios">
+                            <!-- Aquí se cargarán los servicios -->
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="montoTotal">Monto Total:</label>
+                            <input type="text" class="form-control" id="montoTotal" readonly>
+                        </div>
+                        <div class="form-group">
+                            <button type="button" id="agregar-button" class="btn btn-primary">Agregar Orden</button>
+                            <button type="button" id="cancel-button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <button type="button" id="submit-button" class="btn btn-secondary">Actualizar</button>
+                        </div>
+
+                        </div>
+                </form>
+                </div>
+             <!-- Pie del modal -->
+            
+        </div>
+        </div>
+        </div>       
+        <!-- Mensaje de éxito -->
+    <div id="mensajeExito" class="mt-3 text-center" style="display: none; color: green;">¡Vehículo creado correctamente!</div>
+    </div>
+
+    <div class="table-responsive">
+    <div class="container mt-3">
+        <table id="ordenes-table"  class="table">
+            <thead>
+                <tr>
+                    <th>Idorden</th>
+                    <th>Fecha Carga</th>
+                    <th>Cliente</th>
+                    <th>Dominio</th>
+                    <th>Fecha Turno</th>
+                    <th>Hora Turno</th>
+                    <th>Monto Total</th>
+                    <th>Forma de Pago</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se mostrarán los datos de las órdenes -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Cargar Bootstrap 5 JS (incluye Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-tu-nuevo-hash-sha-384-aqui"
+    crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Tu script personalizado para cargar opciones de las listas desplegables y calcular el monto total -->
+    <script src="../js/orden.js"></script>
+    <script src="../utils/array.js"></script>
+    <script src="../js/v1script.js"></script>
+
+</body>
+</html>

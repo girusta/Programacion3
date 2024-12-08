@@ -1,0 +1,180 @@
+/* Estilo para el título */
+#titulo {
+    font-size: 25px; /* Tamaño de fuente más pequeño */
+    font-weight: bold; /* Texto en negrita */
+    color: #323963; /* Color del texto */
+    text-align: left; /* Alinear el texto a la izquierda */
+    margin: 10px 25px; /* Espacio superior e inferior */
+    display: flex;
+    align-items: center;
+}
+
+#titulo i {
+    margin-right: 5px; /* Espacio entre el icono y el texto */
+    font-size: 18px; /* Tamaño del icono más pequeño */
+    color: #d26b16; /* Color del icono */
+}
+
+/* Estilo para el contenedor de filtros */
+#filtro-container {
+    text-align: left; /* Alinear el contenido a la izquierda */
+    margin: 10px 25px; /* Espacio superior e inferior */
+    background-color: #003366; /* Fondo de color azul oscuro */
+    padding: 20px; /* Espacio interno alrededor del contenido */
+    border-radius: 5px; /* Bordes redondeados (opcional) */
+}
+
+/* Estilo para las filas de filtros */
+.filtros-fila {
+    display: flex; /* Usar flexbox para alinear elementos */
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten a la siguiente línea si es necesario */
+    justify-content: space-between; /* Espacio uniforme entre elementos */
+    margin-bottom: 15px; /* Espacio inferior entre filas */
+}
+
+/* Estilo para cada filtro */
+.filtro {
+    flex: 1; /* Permitir que cada filtro crezca para llenar el espacio disponible */
+    min-width: 50px; /* Ancho mínimo para cada filtro */
+    margin-right: 50px; /* Espacio a la derecha de cada filtro */
+}
+
+.filtro:last-child {
+    margin-right: 0; /* Sin espacio a la derecha del último filtro */
+}
+
+.filtro label {
+    width: 100%; /* Asegura que la etiqueta ocupe todo el ancho del filtro */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    display: flex;
+    color: #ffffff; /* Color de texto blanco para mejor contraste */
+}
+
+.filtro input, 
+.filtro select, 
+.filtro button {
+    width: 100%;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    padding: 1px; /* Reducir padding */
+    display: flex;
+    color: #000000; /* Color de texto negro dentro de los inputs y selects */
+    background-color: #ffffff; /* Fondo blanco para los inputs y selects */
+    border: 1px solid #ccc; /* Bordes */
+    border-radius: 3px; /* Bordes redondeados */
+}
+
+/* Estilo específico para el botón Limpiar */
+#limpiarFiltrosFecha {
+    background-color: #ff0000; /* Fondo rojo */
+    color: #ffffff; /* Texto blanco */
+    border: none; /* Sin borde */
+    padding: 10px; /* Padding para el botón */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+#limpiarFiltrosFecha:hover {
+    background-color: #cc0000; /* Fondo más oscuro al pasar el cursor */
+}
+
+/* Estilo para el campo Total */
+#suma-total {
+    width: 25%;
+    margin: auto;
+    font-weight: bold;
+    font-size: 16px;
+    color: #e4e2e3;
+    text-align: center;
+    background-color: #616d98; /* Fondo */
+    padding: 8px; /* Ajustar el padding según sea necesario */
+    margin-bottom: 6px;
+}
+
+/* Estilo para la tabla */
+.table-container {
+    overflow-x: auto; /* Permitir desplazamiento horizontal */
+    margin: 10px 0; /* Espacio alrededor del contenedor */
+    border: 1px solid #ccc; /* Opcional: borde alrededor del contenedor */
+    border-radius: 5px; /* Opcional: bordes redondeados */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto; /* Espacio superior e inferior */
+    font-size: 14px;
+    overflow-x: auto; /* Permitir el desplazamiento horizontal */
+}
+
+th, td {
+    padding: 1px;
+    text-align: left;
+    border-bottom: 5px solid #dde2e6;
+}
+
+th {
+    background-color: #2c304b; /* Color de fondo gris claro para las cabeceras */
+    font-weight: bold;
+    color: #f0ebeb; /* Color de texto gris oscuro */
+    font-size: 14px;
+}
+
+tr:hover {
+    background-color: #eaebee; /* Color de fondo gris claro al pasar el ratón sobre una fila */
+}
+
+.hidden-column {
+    display: none;
+}
+
+
+@media screen and (max-width: 450px) {
+    /* Ajustes para el título */
+    #titulo {
+        font-size: 14px; /* Reducir tamaño de fuente */
+        margin: 5px; /* Reducir márgenes */
+    }
+
+    /* Ajustes para el contenedor de filtros */
+    #filtro-container {
+        margin: 5px; /* Reducir márgenes */
+        padding: 10px; /* Reducir padding */
+    }
+
+    /* Ajustes para las filas de filtros */
+    .filtros-fila {
+        flex-direction: column; /* Colocar los filtros en columna */
+        margin-bottom: 10px; /* Espacio inferior entre filas */
+    }
+
+    /* Ajustes para cada filtro */
+    .filtro {
+        margin-right: 0; /* Sin margen derecho */
+        margin-bottom: 10px; /* Espacio inferior */
+        min-width: 100%; /* Asegurar que ocupen todo el ancho */
+    }
+
+    .filtro label,
+    .filtro input,
+    .filtro select {
+        width: 100%; /* Asegurar que ocupen el 100% del contenedor */
+        margin-bottom: 5px; /* Espacio entre elementos */
+    }
+
+    /* Ajustes para el campo Total */
+    #suma-total {
+        font-size: 14px; /* Reducir tamaño de fuente */
+        margin: 10px auto; /* Centrar el campo */
+        width: 90%; /* Ajustar ancho */
+    }
+
+    /* Ajustes para la tabla */
+    #ordenes-table {
+        font-size: 12px; /* Tamaño de fuente reducido */
+        width: 100%; /* Asegurar que la tabla ocupe el 100% del contenedor */
+    }
+
+    th, td {
+        padding: 5px; /* Ajustar padding */
+    }
+}   

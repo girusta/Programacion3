@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Servicio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Botón para abrir el formulario -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crearServicioModal">
+            Crear Orden de trabajo
+        </button>
+
+        <!-- Modal para el formulario -->
+        <div class="modal" id="crearServicioModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Cabecera del modal -->
+                    <div class="modal-header">
+                        <h5 class="modal-title">Formulario de Creación de Servicio</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Cuerpo del modal -->
+                    <div class="modal-body">
+                        <form>
+                            <!-- Campos del formulario -->
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="idorden">
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha">Fecha:</label>
+                                <input type="text" class="form-control" id="fecha" value="<?php echo date('Y-m-d'); ?>" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="dominio">Dominio:</label>
+                                <select class="form-control" id="dominio">
+                                    <!-- Opciones de dominio cargadas desde la tabla vehiculo -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="fechaTurno">Fecha Turno:</label>
+                                <input type="date" class="form-control" id="fechaTurno">
+                            </div>
+                            <div class="form-group">
+                                <label for="horario">Horario:</label>
+                                <input type="time" class="form-control" id="horario">
+                            </div>
+                            <div class="form-group">
+                                <label for="formaPago">Forma de Pago:</label>
+                                <select class="form-control" id="formaPago">
+                                    <!-- Opciones de forma de pago cargadas desde la tabla forma_pago -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Estado:</label>
+                                <select class="form-control" id="estado">
+                                    <!-- Opciones de estado cargadas desde la tabla estado -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="estado">Usuario:</label>
+                                <select class="form-control" id="usuario">
+                                    <!-- Opciones de estado cargadas desde la tabla estado -->
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <h5>Servicios</h5>
+                                <div id="listaServicios">
+                                    <!-- Aquí se cargarán los servicios -->
+                                </div>
+                                <label for="montoTotal">Monto Total:</label>
+                                <input type="text" class="form-control" id="montoTotal" readonly>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Pie del modal -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success">Guardar Orden</button>
+                        <button type="button" class="btn btn-secondary" id="btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla con la información -->
+        <h5 class="mt-5">Información de Órdenes</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Idorden</th>
+                    <th>Fecha Carga</th>
+                    <th>Dominio</th>
+                    <th>Fecha Turno</th>
+                    <th>Hora Turno</th>
+                    <th>Monto Total</th>
+                    <th>Forma de Pago</th>
+                    <th>Estado</th>
+                    <th>Usuario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se mostrarán los datos de las órdenes -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Tu script personalizado para cargar opciones de las listas desplegables y calcular el monto total -->
+    <script src="../js/orden.js"></script>
+    <script src="../utils/array.js"></script>
+</body>
+</html>

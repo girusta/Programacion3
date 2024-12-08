@@ -1,0 +1,353 @@
+
+/* Estilo para el título */
+#titulo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #323963;
+    text-align: left;
+    margin: 10px 25px;
+    display: flex;
+    align-items: center;
+}
+
+#titulo i {
+    margin-right: 5px;
+    font-size: 18px;
+    color: #d26b16;
+}
+
+/* Campos obligatorios en el formulario */
+.required::after {
+    content: " *";
+    color: red;
+    font-weight: bold;
+}
+
+/* Menú lateral  */
+.options__menu {
+    padding: 10px 30px;
+    position: absolute;
+    top: 60px;
+}
+
+.options__menu a {
+    text-decoration: none;
+    color: #fdf9f9b2;
+    cursor: default;
+    display: block;
+    position: relative;
+    transition: color 300ms;
+}
+
+.options__menu a:hover {
+    color: rgb(194, 137, 15);
+}
+
+/*opciones del menu */
+
+.options__menu .option {
+    padding: 20px 0px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.options__menu .option i {
+    width: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.options__menu .option h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.options__menu a h4 {
+    margin: 3;
+    font-size: 16px;
+}
+
+.options__menu .option {
+    display: flex;
+    align-items: center;
+    padding: 20px 0px;
+    position: relative;
+}
+
+.options__menu .option i {
+    width: 20px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+a.selected {
+    color: #d61b1b;
+}
+
+.selected:before {
+    content: '';
+    width: 3px;
+    height: 80%;
+    background: #FAEBD7;
+    position: absolute;
+    top: 10%;
+    left: -30px;
+}
+
+/*Contenedor de Filtros*/
+
+.filter-container {
+    margin-top: 50px;
+    padding: 15px;
+    background-color: #78787e;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Para que los elementos se envuelvan en pantallas más pequeñas */
+}
+
+.col-md-3 {
+    flex: 1;
+    margin-right: 10px;
+    min-width: 200px; /* Añadir un tamaño mínimo */
+}
+
+.filter-label {
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 10px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.form-label,
+.form-select {
+    font-size: 12px;
+    margin-bottom: 1px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-select {
+    padding: 8px;
+}
+
+.d-none {
+    display: none;
+}
+
+#add-client-form-container {
+    max-width: 25%;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: #15151b8e;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+#add-client-form {
+    max-width: 75%;
+}
+
+.form-label {
+    font-weight: bold;
+    color: rgb(10, 10, 3);
+}
+
+.form-control {
+    width: 75%;
+}
+
+.btn {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #bbb9b9;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #cdd52e;
+}
+
+/* Si necesitas un estilo adicional para el margen superior en móviles */
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-md-0 {
+    margin-top: 0;
+}
+
+#submit-button {
+    display: none;
+}
+
+#mensajeExito {
+    display: none;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    width: 50%;
+}
+
+#mensajeExito.show {
+    display: block;
+}
+
+
+#clientes-table {
+    width: 90%; /* Ocupa el ancho completo del contenedor */
+    margin: auto; /* Centra la tabla */
+    font-size: 12px; /* Aumentado: Tamaño de fuente */
+    border-spacing: 0 5px; /* Espaciado entre celdas */
+    margin-top: 20px; /* Margen superior */
+    border: 1px solid #ad906b; /* Borde de la tabla */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+#clientes-table th,
+#clientes-table td {
+    padding: 10px; /* Aumentado: Espaciado interno en celdas */
+    border: 2px solid #c6c3bf; /* Borde de celdas */
+}
+
+#clientes-table th {
+    background-color: #032b45; /* Color de fondo de los encabezados */
+    color: #ffffff; /* Color del texto de los encabezados */
+}
+
+#clientes-table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Color de fondo para filas impares */
+}
+
+#clientes-table tbody tr:hover {
+    background-color: #e0e0e0; /* Color de fondo al pasar el mouse sobre la fila */
+
+#clientes-table td button.editar-cliente {
+    background-color: #032b45; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    padding: 5px 10px; /* Espaciado interno del botón */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+#clientes-table td button.editar-cliente:hover {
+    background-color: #2980b9; /* Color de fondo del botón al pasar el mouse */
+}
+
+.table-responsive {
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+}
+
+/* Media Queries para responsividad */
+@media screen and (max-width: 760px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #main-title {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #open-client-form {
+        margin-left: 0;
+    }
+
+    .filter-container {
+        padding: 5px; /* Reduce el padding en pantallas más pequeñas */
+    }
+
+    .row {
+        flex-direction: column; /* Cambia a columna en pantallas pequeñas */
+        align-items: flex-start; /* Alinea a la izquierda */
+    }
+
+    .col-md-3 {
+        width: 100%; /* Asegúrate de que las columnas ocupen todo el ancho */
+        margin-bottom: 10px; /* Espacio entre columnas */
+    }
+
+    .filter-label {
+        margin-bottom: 5px;
+    }
+
+    .form-label {
+        font-size: 14px;
+    }
+
+    #clientes-table {
+        font-size: 12px; /* Ajuste de tamaño de fuente */
+        width: 100%; /* Asegúrate de que la tabla ocupe todo el ancho disponible */
+    }
+
+    #clientes-table th,
+    #clientes-table td {
+        padding: 5px;
+    }
+
+    #add-client-form-container {
+        padding: 10px;
+    }
+
+    #add-client-form {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .filter-container .col-md-3 {
+        margin-bottom: 10px;
+    }
+
+    .filter-container .text-md-end {
+        text-align: start;
+    }
+}
+
+/* Media Query específica para pantallas de 434x480 */
+@media screen and (max-width: 480px) {
+    #clientes-table {
+        font-size: 10px; /* Ajuste de tamaño de fuente más pequeño */
+    }
+
+    #clientes-table th,
+    #clientes-table td {
+        padding: 3px; /* Espaciado reducido */
+    }
+
+    #clientes-table th {
+        font-size: 11px; /* Ajustar tamaño de fuente de encabezados */
+    }
+
+    .filter-container {
+        padding: 5px; /* Mantén el padding reducido */
+    }
+
+    .filter-label {
+        font-size: 14px; /* Ajusta el tamaño de fuente de las etiquetas */
+    }
+
+    .filter-input, .form-select {
+        font-size: 12px; /* Ajusta el tamaño de fuente de los inputs y selects */
+    }
+}
+}

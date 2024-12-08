@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Principal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/v1estilos.css">
+    <link rel="stylesheet" href="../css/v1principal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body id="body">
+    
+    <header>
+        <div class="header-content">
+            <div class="icon__menu">
+                <i class="fas fa-bars" id="btn_open"></i>
+            </div>
+            <div id="weather" class="weather-info"></div>
+            <div>
+                <div id="current-date"></div>
+                <div id="current-time"></div>
+            </div>
+            <img src="../recursos/logogi1.png" alt="Logo" class="logo-img">
+        </div>
+    </header>
+
+    <div class="menu__side" id="menu_side">
+
+        <div class="name__page">
+            <i class="fa fa-desktop" aria-hidden="true"></i>
+            <h4>Dashboard</h4>
+        </div>
+
+        <div class="options__menu"> 
+            <a href="./v1principal.html" class="selected">
+                <div class="option">
+                    <i class="fas fa-home" title="Inicio"></i>
+                    <h4>Dashboard</h4>
+                </div>
+            </a>
+
+            <a href="./v1cliente.html">
+                <div class="option">
+                    <i class="fa-solid fa-user" title="Cliente"></i>
+                    <h4>Clientes</h4>
+                </div>
+            </a>
+            
+            <a href="./v1vehiculo.html">
+                <div class="option">
+                    <i class="fa-solid fa-car" title="Vehiculo"></i>
+                    <h4>Vehiculos</h4>
+                </div>
+            </a>
+
+            <a href="./v1servicios.html">
+                <div class="option">
+                    <i class="fa-regular fa-square-check" title="Lavado"></i>
+                    <h4>Lavados</h4>
+                </div>
+            </a>
+
+            <a href="#" id="exit-link">
+                <div class="option">
+                    <i class="fa-solid fa-right-from-bracket" title="Salir"></i>
+                    <h4>Salir</h4>
+                </div>
+            </a>
+           
+        </div>
+    </div>
+
+    <div id="confirmation-dialog" class="dialog-overlay">
+        <div class="dialog-box">
+            <p>¿Desea salir del sistema?</p>
+            <button id="confirm-yes">Aceptar</button>
+            <button id="confirm-no">Cancelar</button>
+        </div>
+       
+    </div>    
+    <main>
+        <h1 id="titulo">Gestión de Servicios</h1>
+        <!-- Filtros -->
+    <div id="filtro-container">
+      <div class="filtros-fila">
+            <div class="filtro">
+                <label for="filtroCliente">Cliente:</label> 
+                <input type="text" id="filtroCliente">
+            </div>
+            <div class="filtro">
+                <label for="filtroDominio">Dominio:</label>
+                <input type="text" id="filtroDominio">
+            </div>
+            <div class="filtro">
+                <label for="filtroEstado">Estado:</label>
+                <select id="filtroEstado">
+                    <option value="">Todos</option>
+                    <option value="terminado">Terminado</option>
+                    <option value="en lavado">En Lavado</option>
+                    <option value="con turno">Con Turno</option>
+                    <option value="entregado">Entregado</option>
+                </select>
+            </div>
+        </div> 
+        <div class="filtros-fila">
+            <div class="filtro">
+                <label for="fechaDesde">Fecha Turno Desde:</label>
+                <input type="date" id="fechaDesde">
+            </div>
+        <div class="filtro">
+            <label for="fechaHasta">Fecha Turno Hasta:</label>
+            <input type="date" id="fechaHasta">
+        </div>
+        <div class="filtro">
+            <button id="limpiarFiltrosFecha">Limpiar</button>
+        </div>
+        <button id="mostrarTodosBtn">Mostrar Todos</button>
+    </div>
+</div>
+ 
+<div class="container mt-3">
+    <div class="table-container">
+        <table id="ordenes-table" class="table">
+            <thead>
+                <tr>
+                    <th class="hidden-column">Idorden</th>
+                    <th>Fecha Carga</th>
+                    <th>Cliente</th>
+                    <th>Dominio</th>
+                    <th>Fecha Turno</th>
+                    <th>Hora Turno</th>
+                    <th>Monto Total</th>
+                    <th>Forma de Pago</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí se mostrarán los datos de las órdenes -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!--suma de totales-->
+<br>
+<div id="suma-total" style="font-weight: bold; margin-bottom: 10px;">Total Recaudado: $0.00</div>
+
+</main>
+<script src="../js/v1script.js"></script>
+<script src="../js/ordenHome.js"></script>
+<!-- <script src="../utils/array.js"></script> -->
+</body>
+</html>
